@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SudokuClientController">
+    <children>
+        <Label text="Sudoku Client" font="$titleFont"/>
+        <GridPane fx:id="gridPane" alignment="CENTER" hgap="5" vgap="5">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="11"/>
+                <ColumnConstraints percentWidth="11"/>
+                <ColumnConstraints percentWidth="11"/>
+                <ColumnConstraints percentWidth="11"/>
+                <ColumnConstraints percentWidth="11"/>
+                <ColumnConstraints percentWidth="11"/>
+                <ColumnConstraints percentWidth="11"/>
+                <ColumnConstraints percentWidth="11"/>
+                <ColumnConstraints percentWidth="11"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints percentHeight="11"/>
+                <RowConstraints percentHeight="11"/>
+                <RowConstraints percentHeight="11"/>
+                <RowConstraints percentHeight="11"/>
+                <RowConstraints percentHeight="11"/>
+                <RowConstraints percentHeight="11"/>
+                <RowConstraints percentHeight="11"/>
+                <RowConstraints percentHeight="11"/>
+                <RowConstraints percentHeight="11"/>
+            </rowConstraints>
+        </GridPane>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Check Sudoku" onAction="#handleCheckSudoku"/>
+            <Button text="Solve Sudoku" onAction="#handleSolveSudoku"/>
+        </HBox>
+        <Text fx:id="responseText" wrappingWidth="300" textAlignment="CENTER"/>
+    </children>
+</VBox>
