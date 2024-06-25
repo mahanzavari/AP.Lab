@@ -1,46 +1,27 @@
+package org.example.aplabproject;
+
 import java.io.*;
-import java.net.Socket;
+import java.net.*;
 import java.util.Scanner;
+public class Client {
 
-public class SudokuClient {
-
-    private static final String SERVER_ADDRESS = "localhost";
-    private static final int PORT = 12345;
-    private static final int N = 9;
+    private static final String HOST = "127.0.0.1";
+    private static final int PORT = 8080;
 
     public static void main(String[] args) {
-        int[][] grid = new int[N][N];
-
-        try (Socket socket = new Socket(SERVER_ADDRESS, PORT);
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        try (Socket socket = new Socket(HOST, PORT);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
              Scanner scanner = new Scanner(System.in)) {
 
-            System.out.println("Enter the Sudoku puzzle (9 lines of 9 space-separated numbers, 0 for empty cells):");
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
-                    grid[i][j] = scanner.nextInt();
-                }
-            }
+            System.out.println("Enter the 81 numbers of the Sudoku (comma-separated, row by row):");
+            String input = scanner.nextLine();
+            out.println(input);
 
-            // Sending the Sudoku puzzle to the server
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
-                    out.print(grid[i][j] + " ");
-                }
-                out.println();
+            String response;
+            while ((response = in.readLine()) != null) {
+                System.out.println(response);
             }
-
-            // Receiving the solved Sudoku puzzle from the server
-            System.out.println("\nThe solved Sudoku is:\n");
-            for (int i = 0; i < N; i++) {
-                String[] line = in.readLine().split(" ");
-                for (int j = 0; j < N; j++) {
-                    System.out.print(line[j] + " ");
-                }
-                System.out.println();
-            }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
