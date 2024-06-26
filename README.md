@@ -17,6 +17,6 @@ Mahan Zavvari
 
 Spring of 2024
 second term of 2024 
-prof : Mr. Amirhossein babaieyan 
+prof : Mr. Amirhossein babaieyan \n
 Teaching Assistants : Mr. Mehdi Kamali & Ms. Mahsa Nasehi 
 
