@@ -10,7 +10,8 @@ The UML assignments are placed within the UML folder with two attached pngs
 
 # LeetCode 
 The three LeetCode Algorithm assignments are placed within diffrent folders in the Leetcode section
-
+# Resume 
+The resume for the winter of 2024 is placed within the resume folder!<br>
 
 # About
 Mahan Zavvari <br>
